@@ -777,7 +777,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850381064890431008}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -951,7 +951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2687120532114005766, guid: 80fe0d3f727f69b428a6da25d5b7f260, type: 3}
       propertyPath: count
-      value: 99
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3756517734610426394, guid: 80fe0d3f727f69b428a6da25d5b7f260, type: 3}
       propertyPath: m_IsActive
@@ -972,6 +972,22 @@ PrefabInstance:
     - target: {fileID: 7752279729409643339, guid: 80fe0d3f727f69b428a6da25d5b7f260, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: ItemSlot, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667296321131221037, guid: 80fe0d3f727f69b428a6da25d5b7f260, type: 3}
+      propertyPath: m_text
+      value: Remove
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667296321194348489, guid: 80fe0d3f727f69b428a6da25d5b7f260, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RemoveItemFromSlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667296321342698315, guid: 80fe0d3f727f69b428a6da25d5b7f260, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667296321877990219, guid: 80fe0d3f727f69b428a6da25d5b7f260, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -1094,11 +1110,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2687120532114005766, guid: 80fe0d3f727f69b428a6da25d5b7f260, type: 3}
       propertyPath: count
-      value: 99
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3756517734610426394, guid: 80fe0d3f727f69b428a6da25d5b7f260, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667296321131221037, guid: 80fe0d3f727f69b428a6da25d5b7f260, type: 3}
+      propertyPath: m_text
+      value: 'Remove '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667296321194348489, guid: 80fe0d3f727f69b428a6da25d5b7f260, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RemoveItemFromSlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667296321342698315, guid: 80fe0d3f727f69b428a6da25d5b7f260, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667296321877990219, guid: 80fe0d3f727f69b428a6da25d5b7f260, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

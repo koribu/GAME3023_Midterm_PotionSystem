@@ -66,6 +66,7 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void UseItemInSlot()
     {
+        popUp.SetActive(false);
         if (CanUseItem())
         {
             item.Use();
@@ -74,6 +75,17 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 Count--;
             }
         }
+    }
+
+    public void SetCountOfItem(int num)
+    {
+        count = num;
+    }
+
+    public void IncreaseNumberOfItem()
+    {
+        count++;
+        UpdateGraphic();
     }
 
     private bool CanUseItem()
@@ -101,7 +113,7 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             nameText.text = "";
         }
 
-        if(popUp.active == true && Vector3.Distance(transform.position, new Vector3(eventData.position.x, eventData.position.y,transform.position.z))> popUpDisappearDistance)
+        if(popUp.activeSelf == true && Vector3.Distance(transform.position, new Vector3(eventData.position.x, eventData.position.y,transform.position.z))> popUpDisappearDistance)
         {
             popUp.SetActive(false);
         }
@@ -111,19 +123,32 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         popUp.SetActive(true); 
     }
+    public void addItemToSlot(Item it)
+    {
+        Debug.Log("Item try add to Slot");
 
+        item = it;
+        count = 1;
+        UpdateGraphic();
+    }
     public void AddItemToPot()
     {
 
         Debug.Log("Item try add to pot");
-
+        popUp.SetActive(false);
+        count--;
+        
         FindObjectOfType<CookingPotBehaviour>().AddItemToPot(item);
+        UpdateGraphic();
     }
 
     public void RemoveItemFromSlot()
     {
+        popUp.SetActive(false);
+        FindObjectOfType<Inventory>().AddItemToInventory(item);
         item = null;
         UpdateGraphic();
     }
+
 
 }
