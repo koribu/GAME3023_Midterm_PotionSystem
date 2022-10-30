@@ -18,6 +18,11 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     [SerializeField]
     private int count = 0;
+
+    [SerializeField]
+    GameObject popUp;
+
+    public float popUpDisappearDistance = 50;
     public int Count
     {
         get { return count; }
@@ -83,14 +88,29 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             descriptionText.text = item.description;
             nameText.text = item.name;
         }
+
+      
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        Debug.Log(eventData.position);
         if(item != null)
         {
             descriptionText.text = "";
             nameText.text = "";
         }
+
+        if(popUp.active == true && Vector3.Distance(transform.position, new Vector3(eventData.position.x, eventData.position.y,transform.position.z))> popUpDisappearDistance)
+        {
+            popUp.SetActive(false);
+        }
     }
+
+    public void ShowItemUsePopUp()
+    {
+        popUp.SetActive(true); 
+    }
+
+
 }
