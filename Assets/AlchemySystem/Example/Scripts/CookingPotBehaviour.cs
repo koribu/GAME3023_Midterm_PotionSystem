@@ -7,7 +7,10 @@ public class CookingPotBehaviour : MonoBehaviour
     // Start is called before the first frame update
 
     [SerializeField]
-    ItemSlot item1, item2;
+    ItemSlot itemSlot1, itemSlot2, outputSlot;
+
+    [SerializeField]
+    List<Recipe> recipes = new List<Recipe>();
 
     void Start()
     {
@@ -16,30 +19,40 @@ public class CookingPotBehaviour : MonoBehaviour
 
     public void CookItems()
     {
-        if (item1.item && item2.item)// Checking if items added to slots
+        if(itemSlot1.item == null || itemSlot2.item == null)
         {
+            Debug.Log("Add item to the pot to cook!");
+            return;
+        }
 
-            Debug.Log("items cooked");
-        }
-        else
+        foreach(Recipe recipe in recipes)
         {
-            Debug.Log("Add items to cook");
+            if((recipe.inputItem1 == itemSlot1.item && recipe.inputItem2 == itemSlot2.item)||
+                (recipe.inputItem1 == itemSlot2.item && recipe.inputItem2 == itemSlot1.item))
+            {
+                outputSlot.addItemToSlot(recipe.outputItem) ;
+                itemSlot1.DecreaseNumberOfItem();
+                itemSlot2.DecreaseNumberOfItem();
+                return;
+            }
         }
+        Debug.Log("Use another combination");
     }
 
     public void AddItemToPot(Item item)
     {
-        if(item1.item == null)
+        if(itemSlot1.item == null)
         {
-            item1.item = item;
-            item1.UpdateGraphic();
+            itemSlot1.addItemToSlot(item);
+
         }
            
         else
         {
-            item2.item = item;
-            item2.UpdateGraphic();
+            itemSlot2.addItemToSlot(item);
         }
        
     }
+
+
 }

@@ -231,7 +231,7 @@ MonoBehaviour:
   nameText: {fileID: 0}
   count: 0
   popUp: {fileID: 8667296321342697653}
-  popUpDisappearDistance: 50
+  popUpDisappearDistance: 80
   itemIcon: {fileID: 840489830247215657}
   itemCountText: {fileID: 5826099176900553619}
 --- !u!1 &3756517734610426394

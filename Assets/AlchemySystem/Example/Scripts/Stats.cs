@@ -5,11 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public struct Stats 
 {
-    public int Strength,
-        Health,
+    public int Health,
         Mana,
+        Strength,
+        Dexterity,
         Intelligence,
-        Speed,
+        Defence,
         Stamina;
 
 }

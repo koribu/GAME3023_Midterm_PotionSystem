@@ -73,6 +73,7 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if (item.isConsumable)
             {
                 Count--;
+                FindObjectOfType<CharacterStatsManager>().UpdateStats(item.stats);
             }
         }
     }
@@ -87,6 +88,12 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         count++;
         UpdateGraphic();
     }
+    public void DecreaseNumberOfItem()
+    {
+        count--;
+        UpdateGraphic();
+    }
+
 
     private bool CanUseItem()
     {
@@ -135,14 +142,15 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
 
         Debug.Log("Item try add to pot");
-        popUp.SetActive(false);
+       
         count--;
         
         FindObjectOfType<CookingPotBehaviour>().AddItemToPot(item);
         UpdateGraphic();
+        popUp.SetActive(false);
     }
 
-    public void RemoveItemFromSlot()
+    public void RemoveItemFromPot()
     {
         popUp.SetActive(false);
         FindObjectOfType<Inventory>().AddItemToInventory(item);
