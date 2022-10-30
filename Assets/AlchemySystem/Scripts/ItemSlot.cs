@@ -1,4 +1,7 @@
- using System;
+// ---------------ItemSlot----------------
+// This script provide item slot behaviors and control the item inside of that slot. 
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -20,11 +23,11 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private int count = 0;
 
     [SerializeField]
-    GameObject popUp;
+    GameObject popUp; //usage options popup panel
 
-    public float popUpDisappearDistance = 50;
-    public int Count
-    {
+    public float popUpDisappearDistance = 50; // Popup disappearing distance that when cursor passes, it disappears
+    public int Count //Number of same item on the slot
+    { 
         get { return count; }
         set
         {
@@ -46,7 +49,7 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
 
     //Change Icon and count
-    public void UpdateGraphic()
+    public void UpdateGraphic()//Update UI and graphics of the slot according to any changes
     {
         if (count < 1 || item == null)
         {
@@ -62,9 +65,9 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             itemCountText.gameObject.SetActive(true);
             itemCountText.text = count.ToString();
         }
-    }
+    } 
 
-    public void UseItemInSlot()
+    public void UseItemInSlot()//It checks if item is usable than it calls the item's use function
     {
         popUp.SetActive(false);
         if (CanUseItem())
@@ -73,34 +76,34 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if (item.isConsumable)
             {
                 Count--;
-                FindObjectOfType<CharacterStatsManager>().UpdateStats(item.stats);
+                
             }
         }
-    }
+    } 
 
-    public void SetCountOfItem(int num)
+    public void SetCountOfItem(int num) // It sets the number of items in the slot
     {
         count = num;
-    }
+    } 
 
-    public void IncreaseNumberOfItem()
+    public void IncreaseNumberOfItem()//It increases of one value the number of item
     {
         count++;
         UpdateGraphic();
-    }
-    public void DecreaseNumberOfItem()
+    } 
+    public void DecreaseNumberOfItem()//It decreases of one value the number of item
     {
         count--;
         UpdateGraphic();
     }
 
 
-    private bool CanUseItem()
+    private bool CanUseItem()//Checks if there is any usable item
     {
         return (item != null && count > 0);
-    }
+    } 
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnPointerEnter(PointerEventData eventData) // Checks if cursor enters on the object, if yes, it shows same information as description and name etc
     {
         if (item != null)
         {
@@ -111,7 +114,7 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
       
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public void OnPointerExit(PointerEventData eventData)// Checks if cursor exits on the object, if yes, it stops showing infos
     {
         Debug.Log(eventData.position);
         if(item != null)
@@ -120,17 +123,18 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             nameText.text = "";
         }
 
-        if(popUp.activeSelf == true && Vector3.Distance(transform.position, new Vector3(eventData.position.x, eventData.position.y,transform.position.z))> popUpDisappearDistance)
+        if(popUp.activeSelf == true && Vector3.Distance(transform.position, 
+            new Vector3(eventData.position.x, eventData.position.y,transform.position.z))> popUpDisappearDistance) // It checks if popUp is active and cursor distance to slot to make the popup disappear
         {
             popUp.SetActive(false);
         }
     }
 
-    public void ShowItemUsePopUp()
+    public void ShowItemUsePopUp() //Shows usage options popup
     {
         popUp.SetActive(true); 
     }
-    public void addItemToSlot(Item it)
+    public void addItemToSlot(Item it) //It adds item to slot and update graphics
     {
         Debug.Log("Item try add to Slot");
 
@@ -138,7 +142,7 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         count = 1;
         UpdateGraphic();
     }
-    public void AddItemToPot()
+    public void AddItemToPot() // It takes one item from the slot and move it to pot input slot.
     {
 
         Debug.Log("Item try add to pot");
@@ -150,7 +154,7 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         popUp.SetActive(false);
     }
 
-    public void RemoveItemFromPot()
+    public void RemoveItemFromPot() // it takes item from pot slot and return it back to inventory
     {
         popUp.SetActive(false);
         FindObjectOfType<Inventory>().AddItemToInventory(item);

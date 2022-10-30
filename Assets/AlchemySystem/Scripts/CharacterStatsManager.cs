@@ -1,3 +1,6 @@
+// ---------------CharacterStatsManager----------------
+// This script responsible for keeping character stats and updating it
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +8,7 @@ using UnityEngine;
 public class CharacterStatsManager : MonoBehaviour
 {
     [SerializeField]
-    TMPro.TextMeshProUGUI 
+    TMPro.TextMeshProUGUI  //Ui elements that hold the values of stats
         hpText,
         manaText,
         strText,
@@ -15,7 +18,7 @@ public class CharacterStatsManager : MonoBehaviour
         staText;
 
     [SerializeField]
-    Stats stats;
+    Stats stats; //Character stats that storage all the stats with values
     int Hp { get =>stats.Health; set => stats.Health = value; }
     int Mana { get => stats.Mana; set => stats.Mana = value; }
     int Str { get => stats.Strength; set => stats.Strength = value; }
@@ -28,7 +31,7 @@ public class CharacterStatsManager : MonoBehaviour
     {
         RefreshUI();
     }
-    public void UpdateStats(Stats stat)
+    public void UpdateStats(Stats stat) //Function that update stat values by reaching from outside of this script
     {     
         stats.Health += stat.Health;
         stats.Mana += stat.Mana;
@@ -41,7 +44,7 @@ public class CharacterStatsManager : MonoBehaviour
         RefreshUI();
     }
 
-    private void RefreshUI()
+    private void RefreshUI() //Update UI according to Stat values
     {
         hpText.text = stats.Health.ToString() ;
         manaText.text = stats.Mana.ToString();

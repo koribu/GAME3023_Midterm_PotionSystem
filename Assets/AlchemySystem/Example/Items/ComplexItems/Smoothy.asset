@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: a5c2cac1b28ab174292a8dfef716ef67, type: 3}
   description: 
-  isConsumable: 0
+  isConsumable: 1
   stats:
-    Strength: 5
     Health: 5
     Mana: 2
+    Strength: 5
+    Dexterity: 0
     Intelligence: 0
-    Speed: 0
+    Defence: 0
     Stamina: 0
