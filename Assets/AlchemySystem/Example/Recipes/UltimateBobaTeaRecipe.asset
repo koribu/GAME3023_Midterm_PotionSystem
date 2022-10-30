@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e751a33afbe8b429cf4c89b131f5a6, type: 3}
+  m_Name: UltimateBobaTeaRecipe
+  m_EditorClassIdentifier: 
+  inputItem1: {fileID: 11400000, guid: 5a8c20acc933e1649afe8369cd077cf0, type: 2}
+  inputItem2: {fileID: 11400000, guid: 8edf88457d073c0468283afc8209338a, type: 2}
+  outputItem: {fileID: 11400000, guid: cd3c24d3c87f1d243a46c7cb6b6568bc, type: 2}

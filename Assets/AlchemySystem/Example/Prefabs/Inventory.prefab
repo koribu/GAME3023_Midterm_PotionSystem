@@ -1346,15 +1346,19 @@ PrefabInstance:
       objectReference: {fileID: 2687120532999696038}
     - target: {fileID: 1850381064890431037, guid: f1d21c62c27517b489e965d9e9b441dd, type: 3}
       propertyPath: recipes.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1850381064890431037, guid: f1d21c62c27517b489e965d9e9b441dd, type: 3}
       propertyPath: recipes.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 253643c5e06336041bbcd7b49d636343, type: 2}
+    - target: {fileID: 1850381064890431037, guid: f1d21c62c27517b489e965d9e9b441dd, type: 3}
+      propertyPath: recipes.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: a107ce59843a0fb41ae6fadf108b415f, type: 2}
     - target: {fileID: 2622807980222195193, guid: f1d21c62c27517b489e965d9e9b441dd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RemoveItemFromSlot
+      value: RemoveItemFromPot
       objectReference: {fileID: 0}
     - target: {fileID: 4388562282824996106, guid: f1d21c62c27517b489e965d9e9b441dd, type: 3}
       propertyPath: item
