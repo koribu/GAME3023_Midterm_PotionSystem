@@ -46,9 +46,9 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
 
     //Change Icon and count
-    void UpdateGraphic()
+    public void UpdateGraphic()
     {
-        if (count < 1)
+        if (count < 1 || item == null)
         {
             item = null;
             itemIcon.gameObject.SetActive(false);
@@ -112,5 +112,18 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         popUp.SetActive(true); 
     }
 
+    public void AddItemToPot()
+    {
+
+        Debug.Log("Item try add to pot");
+
+        FindObjectOfType<CookingPotBehaviour>().AddItemToPot(item);
+    }
+
+    public void RemoveItemFromSlot()
+    {
+        item = null;
+        UpdateGraphic();
+    }
 
 }

@@ -11,19 +11,35 @@ public class CookingPotBehaviour : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     public void CookItems()
     {
-        if(item1.item && item2.item)// Checking if items added to slots
+        if (item1.item && item2.item)// Checking if items added to slots
         {
-            
+
             Debug.Log("items cooked");
         }
         else
         {
             Debug.Log("Add items to cook");
         }
+    }
+
+    public void AddItemToPot(Item item)
+    {
+        if(item1.item == null)
+        {
+            item1.item = item;
+            item1.UpdateGraphic();
+        }
+           
+        else
+        {
+            item2.item = item;
+            item2.UpdateGraphic();
+        }
+       
     }
 }
